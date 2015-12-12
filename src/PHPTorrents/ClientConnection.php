@@ -11,7 +11,7 @@
 namespace Vio\PHPTorrents;
 
 class ClientConnection
-{
+{ 
 	private $_protocol	= 'http';
 	private $_host		= 'localhost';
 	private $_port;
