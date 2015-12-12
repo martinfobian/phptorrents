@@ -1,9 +1,9 @@
 {
-    "name": "vioweb/PHPTorrents",
+    "name": "vioweb/phptorrents",
     "type": "library",
     "description": "Library for communicating with various Torrent Clients in PHP",
     "keywords": ["torrent","php","deluge"],
-    "homepage": "http://github.com/vioweb/PHPTorrents",
+    "homepage": "http://github.com/vioweb/phptorrents",
     "license": "MIT",
     "authors": [
 		{
