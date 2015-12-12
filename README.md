@@ -158,7 +158,7 @@ $client = (new Client($connection))
 /*
  * Lets request a recently added torrent
  * and apply some methods
- * Note: all torrents are identifier by its hashString
+ * Note: all torrents are identifier by their hashStrings
  */
 $hash = '1619ecc9373c3639f4ee3e261638f29b33a6cbd6';
 
