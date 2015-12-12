@@ -16,7 +16,7 @@ class ClientConnection
 	private $_host		= 'localhost';
 	private $_port;
 	private $_password;
-	
+
 	public function __call($method, $arguments)
 	{
 		$action = substr($method, 0, 3) == 'get' ? 'get' : 'set';
