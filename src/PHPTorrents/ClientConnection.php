@@ -6,7 +6,6 @@
  * @copyright 2015
  * @package Vio
  * @project TorrentsPHP
- * @git https://github.com/veoweb/PHPTorrents
  */
  
 namespace Vio\PHPTorrents;
@@ -37,4 +36,3 @@ class ClientConnection
 		return $this;
 	}
 }
-?>
