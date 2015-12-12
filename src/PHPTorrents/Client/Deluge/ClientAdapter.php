@@ -6,7 +6,6 @@
  * @copyright 2015
  * @package Vio
  * @project TorrentsPHP
- * @git https://github.com/veoweb/PHPTorrents
  */
 
 namespace Vio\PHPTorrents\Client\Deluge;
@@ -19,9 +18,9 @@ use \Vio\PHPTorrents\Torrent as Torrent,
 class ClientAdapter extends ClientFactory
 {
     public function __construct(\Vio\PHPTorrents\ClientConnection $connection)
-	{
+    {
 	$this->client = new RequestFactory($connection);
-	}
+    }
     public function addTorrent(Torrent $torrent)
     {
         $result = (object) json_decode($this->_addTorrent($torrent), true);
