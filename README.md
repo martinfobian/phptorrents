@@ -1,7 +1,7 @@
 # PHPTorrents
 Library for communicating with various Torrent Clients in PHP.
 
-# Installation
+<h3>Installation</h3>
 Installation via Composer, just add this to your composer.json file:
   
     {
@@ -12,7 +12,6 @@ Installation via Composer, just add this to your composer.json file:
   
 ..or a stand-alone installation
   
-    $git clone https://github.com/vioweb/phptorrents.git
-    $curl -sS https://getcomposer.org/installer | php
-    $php composer.phar install
-
+$ git clone https://github.com/vioweb/phptorrents.git
+$ curl -sS https://getcomposer.org/installer | php
+$ php composer.phar install
