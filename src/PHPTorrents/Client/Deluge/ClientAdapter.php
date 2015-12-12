@@ -4,7 +4,9 @@
  * @author Jan Willem van Os
  * @email info@jwvanos.com
  * @copyright 2015
+ * @package Vio
  * @project TorrentsPHP
+ * @git https://github.com/veoweb/PHPTorrents
  */
 
 namespace Vio\PHPTorrents\Client\Deluge;
@@ -18,8 +20,7 @@ class ClientAdapter extends ClientFactory
 {
     public function __construct(\Vio\PHPTorrents\ClientConnection $connection)
 	{
-		$this->client = new RequestFactory($connection);
-        var_dump($this->client);
+	$this->client = new RequestFactory($connection);
 	}
     public function addTorrent(Torrent $torrent)
     {
