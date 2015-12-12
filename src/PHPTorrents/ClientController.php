@@ -10,9 +10,9 @@
 
 namespace Vio\PHPTorrents;
 
-use \Vio\PHPTorrents\Torrent as Torrent,
+use \Vio\PHPTorrents\Torrent as Torrent, 
     \Vio\PHPTorrents\File as File;
-    
+
 abstract class ClientController
 {
     public function buildTorrent($hash, $utility = null)

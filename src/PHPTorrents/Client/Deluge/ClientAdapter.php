@@ -10,49 +10,46 @@
 
 namespace Vio\PHPTorrents\Client\Deluge;
 
-use \Vio\PHPTorrents\Torrent as Torrent,
-    \Vio\PHPTorrents\TorrentNotFoundException,
-    \Vio\PHPTorrents\Client\Deluge\ClientFactory,
+use \Vio\PHPTorrents\Torrent as Torrent, 
+    \Vio\PHPTorrents\TorrentNotFoundException, 
+    \Vio\PHPTorrents\Client\Deluge\ClientFactory, 
     \Vio\PHPTorrents\Client\Deluge\RequestFactory;
 
 class ClientAdapter extends ClientFactory
 {
     public function __construct(\Vio\PHPTorrents\ClientConnection $connection)
     {
-	$this->client = new RequestFactory($connection);
+        $this->client = new RequestFactory($connection);
     }
     public function addTorrent(Torrent $torrent)
     {
-        $result = (object) json_decode($this->_addTorrent($torrent), true);
-        
-        if(!empty($result->result))
+        $result = (object)json_decode($this->_addTorrent($torrent), true);
+
+        if (!empty($result->result))
         {
             return $this->getTorrent($result->result);
         }
         else
         {
-            throw new \InvalidArgumentException(sprintf(
-                '"addTorrent": invalid torrent provided. Expecting valid Torrent instance, "%s" given', print_r($torrent, true)
-            ));
+            throw new \InvalidArgumentException(sprintf('"addTorrent": invalid torrent provided. Expecting valid Torrent instance, "%s" given',
+                print_r($torrent, true)));
         }
     }
     public function getTorrent($hash = null, $exceptional = true)
     {
-        $result = (object) json_decode($this->_getTorrents(array($hash)), true);
+        $result = (object)json_decode($this->_getTorrents(array($hash)), true);
         $torrentEntry = $result->result[$hash];
-        
-        if(is_array($torrentEntry) && array_key_exists('hash', $torrentEntry))
+
+        if (is_array($torrentEntry) && array_key_exists('hash', $torrentEntry))
         {
             return $this->mapTorrent($torrentEntry);
         }
         else
         {
-            if($exceptional)
+            if ($exceptional)
             {
-                throw new TorrentNotFoundException(sprintf(
-                    '"getTorrent": expecting valid and existing hash, "%s" given',
-                    $hash
-                ));
+                throw new TorrentNotFoundException(sprintf('"getTorrent": expecting valid and existing hash, "%s" given',
+                    $hash));
             }
             else
             {
@@ -66,10 +63,10 @@ class ClientAdapter extends ClientFactory
     }
     public function getTorrents()
     {
-        $result = (object) json_decode($this->_getTorrents(), true);
+        $result = (object)json_decode($this->_getTorrents(), true);
         $torrents = array();
-        
-        foreach($result->result as $torrent)
+
+        foreach ($result->result as $torrent)
         {
             array_push($torrents, $this->mapTorrent($torrent));
         }
