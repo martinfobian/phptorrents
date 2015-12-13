@@ -47,8 +47,8 @@ Build a `Client` instance to initiate the adapters and classes:
 ```php
 use \Vio\PHPTorrents\Client;
 
-$client = (new Client($connection))
-  ->build(Client::CLIENT_DELUGE);
+$client = (new Client(Client::CLIENT_DELUGE))
+  ->connect($connection);
 ```
 
 Optional: check, before using any methods, if the authentication succeeds (e.g. for login purposes):
@@ -83,8 +83,8 @@ $connection = (new ClientConnection)
   ->setPort(8112) // default Deluge port
   ->setPassword('deluge'); //default Deluge password
   
-$client = (new Client($connection))
-  ->build(Client::CLIENT_DELUGE);
+$client = (new Client(Client::CLIENT_DELUGE))
+  ->connect($connection);
   
 $torrentList = $client->getTorrents();
 
@@ -119,8 +119,8 @@ $connection = (new ClientConnection)
   ->setPort(8112) // default Deluge port
   ->setPassword('deluge'); //default Deluge password
   
-$client = (new Client($connection))
-  ->build(Client::CLIENT_DELUGE);
+$client = (new Client(Client::CLIENT_DELUGE))
+  ->connect($connection);
 
 /*
  * Adding torrent by Magnet URI
@@ -166,8 +166,8 @@ $connection = (new ClientConnection)
   ->setPort(8112) // default Deluge port
   ->setPassword('deluge'); //default Deluge password
   
-$client = (new Client($connection))
-  ->build(Client::CLIENT_DELUGE);
+$client = (new Client(Client::CLIENT_DELUGE))
+  ->connect($connection);
 
 /*
  * Lets request a recently added torrent
