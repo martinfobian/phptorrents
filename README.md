@@ -178,6 +178,15 @@ $torrent->queue('top');
 // Now, lets delete
 $removeAllData = false; // when defining true, all the downloaded files will be deleted
 $torrent->delete($removeAllData);
+
+/*
+ * ..or call these functions in the Client instance:
+ */
+$client->startTorrent($torrent);
+$client->pauseTorrent($torrent);
+$client->queueTorrent($torrent, 'bottom');
+$client->deleteTorrent($torrent, $removeAllData);
+
 ```
 
 
