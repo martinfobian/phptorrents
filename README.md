@@ -17,6 +17,7 @@ Installation via Composer, just add this to your composer.json file:
 
 ```
 $ git clone https://github.com/vioweb/phptorrents.git
+$ cd phptorrents
 $ curl -sS https://getcomposer.org/installer | php
 $ php composer.phar install
 ```
