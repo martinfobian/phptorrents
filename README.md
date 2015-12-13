@@ -78,8 +78,8 @@ foreach($torrentList as $torrent)
 {
   // See \Vio\PHPTorrents\Torrent.php for available properties
   echo sprintf(
-    "Name: %s" . \n
-    "Hash: %s" . \n
+    "Name: %s\n" . 
+    "Hash: %s\n" . 
     "Size in bytes: %s . \n\n",
     $torrent->getName(),
     $torrent->getHashString(),
