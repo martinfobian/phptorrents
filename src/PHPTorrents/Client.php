@@ -15,15 +15,15 @@ class Client
     const CLIENT_DELUGE = 'Deluge';
     const CLIENT_TRANSMISSION = 'Transmission';
 
-    private $connection;
-
-    public function __construct(ClientConnection $connection)
+    private $currentClient;
+    
+    public function __construct($client)
     {
-        $this->connection = $connection;
+        $this->currentClient = $client;
     }
-    public function build($client)
+    public function connect(ClientConnection $connection)
     {
-        $className = '\\Vio\\PHPTorrents\\Client\\' . $client . '\\ClientAdapter';
-        return new $className($this->connection);
+        $className = '\\Vio\\PHPTorrents\\Client\\' . $this->currentClient . '\\ClientAdapter';
+        return new $className($connection);
     }
 }
