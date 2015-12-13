@@ -21,6 +21,10 @@ class ClientAdapter extends ClientFactory
     {
         $this->client = new RequestFactory($connection);
     }
+    public function checkAuth()
+    {
+        return $this->_checkAuth();
+    }
     public function addTorrent(Torrent $torrent)
     {
         $result = (object)json_decode($this->_addTorrent($torrent), true);
