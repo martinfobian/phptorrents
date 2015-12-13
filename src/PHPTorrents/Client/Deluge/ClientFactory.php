@@ -31,7 +31,11 @@ abstract class ClientFactory extends ClientController
     const METHOD_QUEUE_DOWN = 'core.queue_down';
 
     public $client;
-
+    
+    public function _checkAuth()
+    {
+        return $this->client->authenticate(false);
+    }
     public function _getTorrents(array $hashes = array())
     {
         $arguments = array((count($hashes) > 0 ? array('id' => $hashes) : null), array(
