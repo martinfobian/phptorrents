@@ -31,7 +31,7 @@ class RequestFactory
 
         return $this->performRequest($method, $params, array('Cookie' => array($cookie)));
     }
-    private function authenticate()
+    private function authenticate($final = true)
     {
         $response = $this->performRequest(self::METHOD_AUTH, array($this->
                 connectionClient->getPassword()));
@@ -41,12 +41,19 @@ class RequestFactory
             $cookies = $response->getHeader('Set-Cookie');
             preg_match_all('#_session_id=(.*?);#', $cookies[0], $matches);
 
-            return isset($matches[0][0]) ? $matches[0][0] : '';
+            return ($final == true ? (isset($matches[0][0]) ? $matches[0][0] : '') : true);
         }
         else
         {
-            throw new DelugeException(sprintf('"%s": No cookie string received, authentication failed',
-                self::METHOD_AUTH));
+            if($final == true)
+            {
+                throw new DelugeException(sprintf('"%s": No cookie string received, authentication failed',
+                    self::METHOD_AUTH));
+            }
+            else
+            {
+                return false;
+            }
         }
     }
     private function performRequest($method, array $params = array(), array $headers =
