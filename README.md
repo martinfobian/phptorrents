@@ -114,7 +114,7 @@ $client = (new Client($connection))
 $magnetURI = 'magnet:?xt=urn:btih:1619ecc9373c3639f4ee3e261638f29b33a6cbd6&dn=Ubuntu+14.10+i386+%28Desktop+ISO%29&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969';
 
 $newTorrent = $client->addTorrent((new Torrent)
-  ->setMagnet:$magnetURI
+  ->setMagnet($magnetURI)
 );
 
 print $newTorrent->getHashString();
