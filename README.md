@@ -47,7 +47,7 @@ Build a 'Client' object to initiate the adapters and classes:
 use \Vio\PHPTorrents\Client;
 
 $client = (new Client($connection))
-  ->build(Client::CLIENT_DELUGE;
+  ->build(Client::CLIENT_DELUGE);
 ```
 
 Now you will be able to use the available features of PHPTorrents. See the examples below.
@@ -70,7 +70,7 @@ $connection = (new ClientConnection)
   ->setPassword('deluge'); //default Deluge password
   
 $client = (new Client($connection))
-  ->build(Client::CLIENT_DELUGE;
+  ->build(Client::CLIENT_DELUGE);
   
 $torrentList = $client->getTorrents();
 
@@ -106,7 +106,7 @@ $connection = (new ClientConnection)
   ->setPassword('deluge'); //default Deluge password
   
 $client = (new Client($connection))
-  ->build(Client::CLIENT_DELUGE;
+  ->build(Client::CLIENT_DELUGE);
 
 /*
  * Adding torrent by Magnet URI
@@ -153,7 +153,7 @@ $connection = (new ClientConnection)
   ->setPassword('deluge'); //default Deluge password
   
 $client = (new Client($connection))
-  ->build(Client::CLIENT_DELUGE;
+  ->build(Client::CLIENT_DELUGE);
 
 /*
  * Lets request a recently added torrent
