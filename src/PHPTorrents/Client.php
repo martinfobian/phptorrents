@@ -23,7 +23,12 @@ class Client
     }
     public function connect(ClientConnection $connection)
     {
-        $className = '\\Vio\\PHPTorrents\\Client\\' . $this->currentClient . '\\ClientAdapter';
+        $classPath = '\\' . implode('\\', array(
+            __NAMESPACE__,
+            'Client',
+            $this->currentClient,
+            'ClientAdapter'
+        ));
         return new $className($connection);
     }
 }
