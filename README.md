@@ -42,13 +42,26 @@ $connection = (new ClientConnection)
   ->setPassword('deluge'); //default Deluge password
 ```
 
-Build a 'Client' object to initiate the adapters and classes:
+Build a `Client` instance to initiate the adapters and classes:
 
 ```php
 use \Vio\PHPTorrents\Client;
 
 $client = (new Client($connection))
   ->build(Client::CLIENT_DELUGE);
+```
+
+Optional: check, before using any methods, if the authentication succeeds (e.g. for login purposes):
+
+```php
+if($client->checkAuth() == true)
+{
+  // ..continue
+}
+else
+{
+  // ..loggin in failed
+}
 ```
 
 Now you will be able to use the available features of PHPTorrents. See the examples below.
