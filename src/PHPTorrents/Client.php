@@ -13,7 +13,6 @@ namespace Vio\PHPTorrents;
 class Client
 {
     const CLIENT_DELUGE = 'Deluge';
-    const CLIENT_TRANSMISSION = 'Transmission';
 
     private $currentClient;
     
