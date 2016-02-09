@@ -15,14 +15,14 @@ class Client
     const CLIENT_DELUGE = 'Deluge';
 
     private $currentClient;
-    
+
     public function __construct($client)
     {
         $this->currentClient = $client;
     }
     public function connect(ClientConnection $connection)
     {
-        $classPath = '\\' . implode('\\', array(
+        $className = '\\' . implode('\\', array(
             __NAMESPACE__,
             'Client',
             $this->currentClient,
