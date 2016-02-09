@@ -10,8 +10,8 @@
 
 namespace Vio\PHPTorrents\Client\Deluge;
 
-use \Amp\Artax\Client, 
-    \Amp\Artax\Request, 
+use \Amp\Artax\Client,
+    \Amp\Artax\Request,
     \Vio\PHPTorrents\Client\Deluge\DelugeException as DelugeException;
 
 class RequestFactory
@@ -25,13 +25,15 @@ class RequestFactory
     {
         $this->connectionClient = $connection;
     }
+    
     public function finalRequest($method, array $params = array())
     {
         $cookie = $this->authenticate();
 
         return $this->performRequest($method, $params, array('Cookie' => array($cookie)));
     }
-    private function authenticate($final = true)
+
+    public function authenticate($final = true)
     {
         $response = $this->performRequest(self::METHOD_AUTH, array($this->
                 connectionClient->getPassword()));
